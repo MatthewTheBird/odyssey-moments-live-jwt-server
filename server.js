@@ -1,6 +1,6 @@
 const Ably = require("ably");
 
-const apiKey = "YOUR_ABLY_API_KEY"; /* Add your API key here */
+const apiKey = "JSrh3g.x4LYUg:dnQ7xzo2sRnbWBgd4VFmt7OQKU7aXSICJuvm-Ar3eXI"; /* Add your API key here */
 if (apiKey.indexOf("INSERT") === 0) {
   throw "Cannot run without an API key. Add your key to server.js";
 }
@@ -62,7 +62,7 @@ app.get("/login", (req, res) => {
   }
 });
 
-// Clear the cookie when the user logs outs
+// Clear the cookie when the user logs out
 app.get("/logout", (req, res) => {
   res.clearCookie("username");
   res.redirect("/");
