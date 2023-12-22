@@ -15,6 +15,14 @@ const express = require("express"),
 
 app.use(cookieParser());
 
+// CORS
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // *For development
+  // res.header("Access-Control-Allow-Origin", "https://live.odysseymoments.com"); // *For production
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // Serve static content from the root path
 app.use("/", express.static(__dirname));
 
