@@ -33,9 +33,13 @@ app.get("/auth", (req, res) => {
   if (req.cookies.username) {
     /* Issue a token with pub & sub privileges for all channels and
       configure the token with an client ID */
+    // tokenParams = {
+    //   capability: { "*": ["publish", "subscribe"] },
+    //   clientId: req.cookies.username,
+    // };
     tokenParams = {
       capability: { "*": ["publish", "subscribe"] },
-      clientId: req.cookies.username,
+      clientId: '*',
     };
   } else {
     /* Issue a token request with sub privileges restricted to one channel
