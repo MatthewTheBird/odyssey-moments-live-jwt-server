@@ -37,17 +37,21 @@ app.get("/auth", (req, res) => {
     //   capability: { "*": ["publish", "subscribe"] },
     //   clientId: req.cookies.username,
     // };
-    tokenParams = {
-      capability: { "*": ["publish", "subscribe"] },
-      clientId: '*',
-    };
+    // tokenParams = {
+    //   capability: { "*": ["publish", "subscribe"] },
+    //   clientId: '*',
+    // };
   } else {
     /* Issue a token request with sub privileges restricted to one channel
        and configure the token without a client ID (anonymous) */
-    tokenParams = {
-      capability: { notifications: ["subscribe"] },
-    };
+    // tokenParams = {
+    //   capability: { notifications: ["subscribe"] },
+    // };
   }
+  tokenParams = {
+    capability: { "*": ["publish", "subscribe"] },
+    clientId: '*',
+  };
 
   console.log("Sending signed token request:", JSON.stringify(tokenParams));
 
